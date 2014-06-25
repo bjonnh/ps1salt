@@ -7,5 +7,7 @@ base:
     - ssh 
     - root
     - winbind
-  'ubuntu':
-    - sssd
+  'os:Arch':
+    - match: grain
+    - systemd
+

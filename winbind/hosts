@@ -1,3 +1,4 @@
 127.0.0.1	{{ grains['host'] }}.ad.pumpingstationone.org        {{ grains['host'] }}
 127.0.0.1       localhost.localdomain   localhost
 ::1             localhost.localdomain   localhost
+10.100.202.1    vm.ad.pumpingstationone.org     vm

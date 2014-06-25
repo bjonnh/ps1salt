@@ -16,3 +16,11 @@ uptimed:
   service:
     - running
     - enable: True
+{% if grains['os'] == 'Arch' %}
+cronie:
+  pkg:
+    - installed
+  service:
+    - running
+    - enable: True
+{% endif %}
