@@ -1,29 +1,31 @@
 ssh:
   pkg:
     - installed
-{% if grains['os'] == 'Ubuntu' %}
-    - name: openssh-server
-{% elif grains['os'] == 'Arch' %}
     - name: openssh
-{% endif %}
   service:
     - running
     - enable: True
-{% if grains['os'] == 'Ubuntu' %}
-    - name: ssh
-{% elif grains['os'] == 'Arch' %}
     - name: sshd
-{% endif %}
-hef:
+dbever:
   ssh_auth:
-    - present  
+    - present
     - user: root
-    - source: salt://ssh/hef.id_rsa.pub
+    - source: salt://ssh/dbever.id_rsa.pub
 gamblit:
   ssh_auth:
     - present
     - user: root
     - source: salt://ssh/gamblit.id_rsa.pub
+hef:
+  ssh_auth:
+    - present  
+    - user: root
+    - source: salt://ssh/hef.id_rsa.pub
+justin:
+  ssh_auth:
+    - present  
+    - user: root
+    - source: salt://ssh/justin.id_rsa.pub
 kuroishi:
   ssh_auth:
     - present
