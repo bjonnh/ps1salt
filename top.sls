@@ -7,7 +7,8 @@ base:
     - ssh 
     - root
     - winbind
+    - backup
   'os:Arch':
     - match: grain
     - systemd
-
+    - resolv

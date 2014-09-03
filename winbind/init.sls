@@ -1,27 +1,44 @@
-samba:
-  pkg:
-    - installed
 krb5:
   pkg:
     - installed
-{% if grains['os'] == 'Ubuntu' %}
-    - name: krb5-user
-{% endif %}
-
 {% if 'roles' in grains and 'dc' in grains['roles']%}
-{% else %}
-winbindd:
-{% if grains['os'] == 'Ubuntu' %}
+samba:
   pkg:
     - installed
-    - name: winbind
-{% endif %}
+  service:
+    - running
+    - enable: true
+smbd:
+  service:
+    - dead
+    - disable: true
+nmbd:
+  service:
+    - dead
+    - disable: true
+winbindd:
+  service:
+    - dead
+    - disable: true
+{% else %}
+samba:
+  pkg:
+    - installed
+  service:
+    - dead
+    - disable: true
+smbd:
   service:
     - running
     - enable: True
-{% if grains['os'] == 'Ubuntu' %}
-    - name: winbind
-{% endif %}
+nmbd:
+  service:
+    - running
+    - neable: true
+winbindd:
+  service:
+    - running
+    - enable: True
 {% endif %}
 
 
