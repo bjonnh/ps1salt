@@ -30,4 +30,4 @@ kuroishi:
   ssh_auth:
     - present
     - user: root
-    - source: salt://ssh/kuroish.id_rsa.pub
+    - source: salt://ssh/kuroishi.id_rsa.pub
