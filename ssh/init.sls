@@ -31,3 +31,8 @@ kuroishi:
     - present
     - user: root
     - source: salt://ssh/kuroishi.id_rsa.pub
+patrickschless:
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/patrickschless.id_rsa.pub
