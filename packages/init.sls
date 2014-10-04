@@ -16,6 +16,9 @@ uptimed:
   service:
     - running
     - enable: True
+rxvt-unicode-terminfo:
+  pkg:
+    - installed
 {% if grains['os'] == 'Arch' %}
 cronie:
   pkg:

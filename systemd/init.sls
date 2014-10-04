@@ -10,3 +10,7 @@ systemd-networkd:
   service:
     - enable: True
     - running
+dhcpcd:
+  service:
+    - enable: false
+    - dead
