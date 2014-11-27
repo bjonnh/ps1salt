@@ -1,9 +1,6 @@
 avahi:
   pkg:
     - installed
-    {% if grains['os'] == 'Ubuntu' %}
-    - name: avahi-daemon
-    {% endif %}
   service:
     - running
     - enable: True
