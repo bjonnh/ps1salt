@@ -21,6 +21,11 @@ hef:
     - present  
     - user: root
     - source: salt://ssh/hef.id_rsa.pub
+imcleod:
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/imcleod.id_dsa.pub
 justin:
   ssh_auth:
     - present  
@@ -36,3 +41,8 @@ patrickschless:
     - present
     - user: root
     - source: salt://ssh/patrickschless.id_rsa.pub
+toba:
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/toba.id_rsa.pub

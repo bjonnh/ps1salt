@@ -5,7 +5,6 @@ SaltStack for Pumping Station: One
 Supported Platforms
 -------------------
 
-* Ubuntu 12.04
 * Arch Linux
 
 Install Configurations
@@ -18,3 +17,5 @@ Testing
 -------
 
 vagrant up
+
+Vagrant will start up an Arch linux box, bootstrap salt, and install the default salt settings. This will take about 3 minutes, 20 seconds.
