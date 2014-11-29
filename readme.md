@@ -16,6 +16,11 @@ Allows member logons, once domain is joined.
 Testing
 -------
 
-vagrant up
+Vagrant will start up an Arch linux box, bootstrap salt, and install the default salt settings. This will take about 4 minutes.
 
-Vagrant will start up an Arch linux box, bootstrap salt, and install the default salt settings. This will take about 3 minutes, 20 seconds.
+    vagrant up
+
+Run state.highstate from the vagrant instance, look for errors, make change, etc
+
+    vagrant ssh
+    sudo salt-call state.highstate
