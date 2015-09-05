@@ -7,6 +7,7 @@
 VAGRANTFILE_API_VERSION = "2"
 $script = <<SCRIPT
 pacman -Sy --noconfirm
+pacman -S archlinux-keyring --noconfirm
 pacman -S --noconfirm salt-zmq
 SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

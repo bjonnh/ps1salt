@@ -1,0 +1,16 @@
+cloud1:
+  host: 10.100.0.12
+  user: root
+  passwd: ps1frocksadmin
+cloud2:
+  host: 10.100.0.13
+  user: root
+  passwd: ps1frocksadmin
+cloud3:
+  host: 10.100.0.14
+  user: root
+  passwd: ps1frocksadmin
+purrvirt.ps1:
+  host: 10.100.0.18
+  user: root
+  passwd: ps1frocksadmin

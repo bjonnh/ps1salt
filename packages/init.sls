@@ -1,29 +1,16 @@
+{% from "packages/map.jinja" import packages with context %}
+include:
+  - epel
 htop:
-  pkg:
-    - installed
+  pkg.installed
 mosh:
-  pkg:
-    - installed
+  pkg.installed
 nmap:
-  pkg:
-    - installed
+  pkg.installed
+salt-minion:
+  pkg.installed
 tmux:
-  pkg:
-    - installed
-uptimed:
-  pkg:
-    - installed
-  service:
-    - running
-    - enable: True
-rxvt-unicode-terminfo:
-  pkg:
-    - installed
-{% if grains['os'] == 'Arch' %}
-cronie:
-  pkg:
-    - installed
-  service:
-    - running
-    - enable: True
-{% endif %}
+  pkg.installed
+vim:
+  pkg.installed:
+    - name: {{ packages.vim_pkg }}
