@@ -1,8 +1,0 @@
-#!/bin/bash
-export OPTIONS="-v5 --s3-use-rrs --s3-use-multiprocessing --file-prefix-archive bulk- --full-if-older-than 30D --exclude-device-files --exclude /tmp --exclude /proc --exclude /sys --exclude /dev --exclude /swap --asynchronous-upload"
-export PASSPHRASE="{{ pillar['PASSPHRASE'] }}"
-export AWS_ACCESS_KEY_ID="{{ pillar['AWS_ACCESS_KEY_ID'] }}"
-export AWS_SECRET_ACCESS_KEY="{{ pillar['AWS_SECRET_ACCESS_KEY'] }}"
-export ENDPOINT=s3+http://ps1-backup/{{ grains['id'] }}
-echo duplicity $OPTIONS / $ENDPOINT
-duplicity $OPTIONS / $ENDPOINT

@@ -7,7 +7,6 @@ base:
     - ssh
   'os:Arch':
     - match: grain
-    - backup
     - resolv
     - systemd
     - terminfo
