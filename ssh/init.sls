@@ -41,6 +41,11 @@ patrickschless:
     - present
     - user: root
     - source: salt://ssh/patrickschless.id_rsa.pub
+sheila:
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/sheila.id_rsa.pub
 toba:
   ssh_auth:
     - present
