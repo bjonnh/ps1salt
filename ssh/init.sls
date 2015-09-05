@@ -1,7 +1,8 @@
+{% from "ssh/map.jinja" import ssh with context %}
 ssh:
   pkg:
     - installed
-    - name: openssh
+    - name: {{ ssh.ssh_pkg }}
   service:
     - running
     - enable: True
