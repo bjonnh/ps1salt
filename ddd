@@ -1,0 +1,30 @@
+/srv/gluster
+vg00-gluster
+
+/home
+vg00-home
+50GB
+
+/boot
+/sda1
+
+/
+vg00-root
+50GB
+
+swap
+vg00-swap
+23.63GB
+
+
+clearpart --all --initlabel --drives=sda,sdb,sdc,sdd
+
+
+part pv.01 --size 3000
+volgroup myvg pv.01
+logvol / --vgname=myvg --size=2000 --name=rootvol
+
+
+part pv.01 --size 3000
+volgroup myvg pv.01
+logvol / --vgname=myvg --size=2000 --name=rootvol

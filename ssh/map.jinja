@@ -1,0 +1,11 @@
+{% set ssh = salt['grains.filter_by']({
+    'Arch': {
+        'ssh_pkg': 'openssh'
+    },
+    'Debian': {
+        'ssh_pkg': 'openssh-server'
+    },
+    'RedHat': {
+        'ssh_pkg': 'openssh'
+    },
+}, merge=salt['pillar.get']('ssh:lookup')) %}

@@ -1,0 +1,11 @@
+{% set avahi = salt['grains.filter_by']({
+    'Arch': {
+        'avahi_pkg': 'avahi'
+    },
+    'Debian': {
+        'avahi_pkg': 'avahi-daemon'
+    },
+    'RedHat': {
+        'avahi_pkg': 'avahi'
+    },
+}, merge=salt['pillar.get']('avahi:lookup')) %}

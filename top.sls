@@ -1,14 +1,17 @@
 base:
   '*':
-    - files
-    - vim
-    - packages
     - avahi
-    - ssh 
+    - files
     - root
-    - winbind
-    - backup
+    - packages
+    - ssh
   'os:Arch':
     - match: grain
-    - systemd
+    - backup
     - resolv
+    - systemd
+    - terminfo
+    - uptimed
+    - winbind
+  'cloud[1-3]':
+    - gluster

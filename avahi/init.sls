@@ -1,6 +1,8 @@
+{% from "avahi/map.jinja" import avahi with context %}
 avahi:
   pkg:
     - installed
+    - name: {{ avahi.avahi_pkg }}
   service:
     - running
     - enable: True
