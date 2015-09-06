@@ -8,7 +8,8 @@ mosh:
 nmap:
   pkg.installed
 salt-minion:
-  pkg.installed
+  pkg.installed:
+    - name: {{ packages.salt_pkg }}
 tmux:
   pkg.installed
 vim:

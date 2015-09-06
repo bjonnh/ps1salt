@@ -1,11 +1,14 @@
 {% set packages = salt['grains.filter_by']({
     'Arch': {
+        'salt_pkg': 'salt-zmq',
         'vim_pkg': 'vim'
     },
     'Debian': {
+        'salt_pkg': 'salt-minion',
         'vim_pkg': 'vim'
     },
     'RedHat': {
+        'salt_pkg': 'salt-minion',
         'vim_pkg': 'vim-enhanced'
     },
 }, merge=salt['pillar.get']('packages:lookup')) %}
