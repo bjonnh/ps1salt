@@ -1,4 +1,4 @@
-{% if grains.os_family == 'RedHat' %}
+{% if grains.os == 'CentOS' %}
 epel-release:
   pkg.installed:
   - require_in:
