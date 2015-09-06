@@ -10,6 +10,8 @@ nmap:
 salt-minion:
   pkg.installed:
     - name: {{ packages.salt_pkg }}
+  service.running:
+    - enable: True
 tmux:
   pkg.installed
 vim:
