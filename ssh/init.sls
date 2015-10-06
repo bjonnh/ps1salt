@@ -12,7 +12,7 @@ dbever:
     - present
     - user: root
     - source: salt://ssh/dbever.id_rsa.pub
-dbever_oberth:
+  ssh_auth:
     - present
     - user: root
     - source: salt://ssh/dbever_oberth.id_rsa.pub
