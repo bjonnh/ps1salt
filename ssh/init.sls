@@ -12,6 +12,10 @@ dbever:
     - present
     - user: root
     - source: salt://ssh/dbever.id_rsa.pub
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/dbever_oberth.id_rsa.pub
 gamblit:
   ssh_auth:
     - present
