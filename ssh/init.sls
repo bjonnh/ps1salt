@@ -56,3 +56,9 @@ toba:
     - present
     - user: root
     - source: salt://ssh/toba.id_rsa.pub
+tachoknight:
+  ssh_auth:
+    - present
+    - user: root
+    - source: salt://ssh/tachoknight.id_rsa.pub
+
