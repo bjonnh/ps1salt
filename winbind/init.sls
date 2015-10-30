@@ -1,6 +1,7 @@
+{% from "winbind/map.jinja" import winbind with context %}
 krb5:
-  pkg:
-    - installed
+  pkg.installed:
+    - name:  {{ winbind.kerberos_pkg }}
 {% if 'roles' in grains and 'dc' in grains['roles']%}
 samba:
   pkg:
@@ -36,12 +37,21 @@ nmbd:
     - running
     - neable: true
 winbindd:
+{% if winbind.winbind_pkg %}
+  pkg.installed:
+    - name: {{ winbind.winbind_pkg }}
+    - require_in:
+      - service: winbindd
+{% endif %}
   service:
     - running
     - enable: True
+    - watch:
+      - cmd: join domain
+{% if winbind.winbind_pkg %}
+    - name: {{ winbind.winbind_pkg }}
 {% endif %}
-
-
+{% endif %}
 include:
   - .{{ grains['os'] }}
 /etc/samba/smb.conf:
@@ -78,6 +88,24 @@ include:
     - source: salt://winbind/sudoers_domain_admins
     - user: root
     - group: root
-    - mode: 0440
+    - mode: 0750
     - template: jinja
     - makedirs: True
+join domain:
+  cmd.run:
+    - name: net ads join -U{{ pillar['join_account'] }}%{{ pillar['join_account_password'] }}
+    - creates: /run/samba/smb_krb5/krb5.conf.PS1
+
+{% for extra_pkg in winbind.extra_pkgs %}
+{{extra_pkg}}:
+  pkg.installed
+{% endfor %}
+
+#upgrade problems
+/var/cache/samba:
+  file.directory:
+    - mode: 0755
+/var/cache/samba/msg:
+  file.directory:
+    - mode: 0755
+

@@ -11,6 +11,13 @@ base:
     - systemd
     - terminfo
     - uptimed
+    - locale
+    - winbind
+  'os:Debian':
+    - match: grain
     - winbind
   'cloud[1-3]':
     - gluster
+  'roles:semservices':
+    - match: grain
+    - semservices

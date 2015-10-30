@@ -12,6 +12,8 @@ salt-minion:
     - name: {{ packages.salt_pkg }}
   service.running:
     - enable: True
+sudo:
+  pkg.installed
 tmux:
   pkg.installed
 vim:

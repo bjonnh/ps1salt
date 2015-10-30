@@ -1,0 +1,15 @@
+{% set winbind = salt['grains.filter_by']({
+    'Arch': {
+        'kerberos_pkg': 'krb5',
+        'extra_pkgs': []
+    },
+    'Debian': {
+        'kerberos_pkg': 'krb5-user',
+        'winbind_pkg': 'winbind',
+        'extra_pkgs': ['libnss-winbind', 'libpam-winbind']
+    },
+    'RedHat': {
+        'kerberos_pkg': 'krb5',
+        'extra_pkgs': []
+    },
+}, merge=salt['pillar.get']('winbind:lookup')) %}
